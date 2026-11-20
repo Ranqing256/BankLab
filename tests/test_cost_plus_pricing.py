@@ -10,6 +10,8 @@ class CostPlusTests(unittest.TestCase):
             {"name": "股权资本", "amount": 50, "cost_pct": 20, "reserve_pct": 0},
         ])
         self.assertAlmostEqual(result["weighted_cost_pct"], 11.0, places=1)
+        self.assertAlmostEqual(result["items"][0]["available"], 170, places=2)
+        self.assertAlmostEqual(result["items"][0]["cost_contribution_pct"], 9.4118, places=3)
     def test_boundary(self):
         self.assertEqual(calculate_cost_plus_pricing([{"amount": 100, "cost_pct": 0, "reserve_pct": 0}])["weighted_cost_pct"], 0)
         with self.assertRaises(ValueError): calculate_cost_plus_pricing([])
