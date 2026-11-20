@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vercel/
+.env*
+*.pdf
+*.pdf.*
+docs/reference/*
+!docs/reference/README.md
+chapter3.txt
+extract*.mjs
+*.tsbuildinfo
+
