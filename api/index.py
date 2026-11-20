@@ -17,6 +17,18 @@ def dispatch(payload):
 
 
 class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        body = {
+            "ok": True,
+            "service": "BankLab Chapter 3 API",
+            "operations": ["weighted_average_cost", "marginal_cost", "cost_plus_pricing", "funding_gap"],
+        }
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(json.dumps(body, ensure_ascii=False).encode("utf-8"))
+
     def do_POST(self):
         try:
             length = int(self.headers.get("content-length", "0"))
