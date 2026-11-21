@@ -1,5 +1,5 @@
 export type SourceType = 'textbook' | 'scaffold' | 'system_variant' | 'system_extension'
-export type ModuleId = 'map' | 'marginal' | 'weighted' | 'cost-plus' | 'gap' | 'structure'
+export type ModuleId = 'map' | 'marginal' | 'weighted' | 'cost-plus' | 'gap' | 'structure' | 'ch4' | 'ch4-map' | 'ch4-cash' | 'ch4-reserve' | 'ch4-demand' | 'ch4-management'
 
 export type ChapterNode = {
   id: string
@@ -19,9 +19,17 @@ export const chapterTree: ChapterNode = {
   pages: '教材 pp.66–86',
   concept: '以最低风险、最小成本获取最大的资金保障，同时支持资产增长并保持流动性。',
   children: [
-    { id: '3.1', title: '存款种类和构成', code: '3.1', pages: 'pp.67–71', concept: '交易账户、储蓄账户、定期存款与核心存款。' },
+    { id: '3.1', title: '存款种类和构成', code: '3.1', pages: 'pp.67–71', concept: '从账户类型、存款来源和结构维度认识商业银行的主要负债。', children: [
+      { id: '3.1-types', title: '存款有哪些种类', code: '3.1.1', pages: 'pp.67–69', concept: '交易账户、储蓄存款、定期存款等服务类型，分别对应支付便利、稳定性和成本。' },
+      { id: '3.1-composition', title: '存款构成怎样观察', code: '3.1.2', pages: 'pp.69–71', concept: '按资产负债类型、国民经济部门、币种、地区、行业、期限、账户和产品等维度分类。' },
+      { id: '3.1-structure', title: '存款服务的经营含义', code: '3.1.3', pages: 'pp.67–71', concept: '存款规模、结构、稳定性和付息成本共同影响负债管理。' },
+    ] },
     { id: '3.2', title: '存款定价', code: '3.2', pages: 'pp.71–74', concept: '在存款增长、客户服务与盈利能力之间作出选择。', children: [
-      { id: '3.2.1', title: '定价与经营目标', code: '3.2.1', pages: 'p.71', concept: '存款定价会影响存贷利差、存款余额和存款组合。' },
+      { id: '3.2.1', title: '定价与经营目标', code: '3.2.1', pages: 'p.71', concept: '存款定价会影响存贷利差、存款余额和存款组合。', children: [
+        { id: '3.2.1-growth', title: '存款增长目标', code: '目标一', pages: 'p.71', concept: '通过价格吸引或稳定资金来源，关注存款数量和客户组合。' },
+        { id: '3.2.1-profit', title: '盈利目标', code: '目标二', pages: 'p.71', concept: '比较资金成本与资产收益，维护存贷利差和整体盈利。' },
+        { id: '3.2.1-service', title: '客户服务目标', code: '目标三', pages: 'p.71', concept: '将价格与账户功能、客户关系和服务组合一起考虑。' },
+      ] },
       { id: '3.2.2', title: '成本加利润定价法', code: '3.2.2', pages: 'pp.72–73', concept: '先计算资金成本，再构成存款服务价格。', exercise: 'cost-plus' },
       { id: '3.2.3', title: '边际成本定价法', code: '3.2.3', pages: 'pp.73–74', concept: '比较新增资金边际成本率和投资资产边际收益率。', formula: 'MC = 新利率 × 新总资金 − 旧利率 × 旧总资金', exercise: 'marginal' },
       { id: '3.2.4', title: '其他定价方法', code: '3.2.4', pages: 'p.74', concept: '按客户、客户关系和服务组合辅助定价。' },
