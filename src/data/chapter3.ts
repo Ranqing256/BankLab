@@ -1,4 +1,4 @@
-export type SourceType = 'textbook' | 'scaffold'
+export type SourceType = 'textbook' | 'scaffold' | 'system_variant' | 'system_extension'
 export type ModuleId = 'map' | 'marginal' | 'weighted' | 'cost-plus' | 'gap' | 'structure'
 
 export type ChapterNode = {
@@ -110,5 +110,12 @@ export const reviewQuestions = [
   { id: 5, text: '你是否了解商业银行负债成本的概念？它们的区别在哪里？', prompt: '将五个成本概念与“直接付息 / 非利息开支 / 可投放资金分母”等线索配对。', answer: '利息成本、营业成本、资金成本、可用资金成本和有关成本的分子、分母与经济含义不同。', activity: '概念配对' },
   { id: 6, text: '对商业银行负债成本的分析方法有哪些？', prompt: '完成表 3-5、表 3-6、表 3-7 的中间计算，再解释适用场景。', answer: '教材从历史加权平均成本、单一资金边际成本和平均边际成本三个角度分析。', activity: '表格计算' },
   { id: 7, text: '试对我国商业银行的负债结构进行分析和解释。', prompt: '比较 2017 年和 2021 年教材数据，并写出一条结构变化。', answer: '教材数据表明存款占负债总额比重总体稳定，储蓄存款比重上升，单位活期存款比重下降，负债来源仍有多元化压力。', activity: '结构图表比较' },
+]
+
+export const variantQuestions = [
+  { id: 'v3-1', text: '如果投资资产收益率下降到 8%，表 3-2 中银行应在哪一档停止扩大筹资？请说明判断依据。', activity: '变式判断', sourceType: 'system_variant' as const, questionType: '简答题', pages: '依据教材 3.2.3，pp.73–74', knowledge: '边际成本率与边际收益率', answer: '比较每一档的边际成本率与 8% 的边际收益率；当边际成本率不再低于收益率时停止扩张。应同时说明累计利润和临界点不是同一个概念。' },
+  { id: 'v3-2', text: '为什么同样是 500 万元筹资，储备要求越高的资金来源，对可用资金成本率的推升越明显？', activity: '变式解释', sourceType: 'system_variant' as const, questionType: '简答题', pages: '依据教材 3.2.2、3.4.1，pp.72–80', knowledge: '可用资金与资金成本', answer: '储备要求会减少可用于贷款和投资的资金；成本仍然发生，但可用资金分母变小，所以可用资金成本率上升。' },
+  { id: 'v3-3', text: '当贷款与投资需求小于存款量时，第三章资金缺口应如何表示？这与第九章 RSA−RSL 有什么区别？', activity: '概念辨析', sourceType: 'system_variant' as const, questionType: '判断辨析', pages: '依据教材 3.3.6，p.77', knowledge: '第三章资金缺口', answer: '第三章资金缺口为需求减存款，结果为负时表示资金盈余；第九章 RSA−RSL 是利率敏感资产与利率敏感负债的利率风险缺口，口径不同。' },
+  { id: 'v3-4', text: '请用“负债总额基础”和“可用资金基础”两个分母解释表 3-5 中为什么同一资金来源会出现不同成本率。', activity: '口径解释', sourceType: 'system_variant' as const, questionType: '名词解释', pages: '依据教材 3.4.1–3.4.2，pp.78–83', knowledge: '历史加权平均成本', answer: '负债总额基础以吸收资金为分母；可用资金基础扣除了准备金、现金资产等不能直接投放的部分，因此分母更小，成本率通常更高。' },
 ]
 
