@@ -25,4 +25,3 @@ api/index.py 是请求驱动的 Vercel Python Function，接受 JSON POST。第�
 
 项目使用 vercel.json 配置 Vite 静态输出和 Python Function。连接 GitHub 仓库后，Vercel Hobby 计划可按默认 Git 集成自动构建预览和生产部署。部署前运行 npm run build 与 npm run test:python，并在 Vercel 控制台确认 Python Runtime 的当前版本与依赖限制。
 
-本轮内容已完成本地构建和测试，GitHub main 为分章考试训练与教材原题入口版本。
