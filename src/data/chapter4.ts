@@ -8,6 +8,7 @@ export type Chapter4Node = {
   concept: string
   formula?: string
   exercise?: string
+  examFocus?: boolean
   children?: Chapter4Node[]
 }
 
@@ -16,24 +17,55 @@ export const chapter4Tree: Chapter4Node = {
   concept: '在满足流动性需求的前提下，保持适度现金资产并平衡安全性与盈利性。',
   children: [
     { id: '4.1', code: '4.1', title: '现金资产管理的目的和原则', pages: 'pp.87–90', concept: '现金资产包括库存现金、托收中的现金、在中央银行的存款和存放同业存款。', exercise: 'ch4-cash', children: [
-      { id: '4.1.1', code: '4.1.1', title: '现金资产的构成', pages: 'p.87', concept: '狭义现金资产是库存现金，广义现金资产还包括准现金。' },
-      { id: '4.1.2', code: '4.1.2', title: '目的与原则', pages: 'pp.88–90', concept: '适度存量控制、适时流量调节和安全性原则。' },
+      { id: '4.1.1', code: '4.1.1', title: '现金资产的构成', pages: 'p.87', concept: '狭义现金资产是库存现金，广义现金资产还包括准现金。', children: [
+        { id: '4.1-vault', code: '构成 1', title: '库存现金', pages: 'p.87', concept: '满足日常交易支付，属于非盈利性资产，防护和保险费用较高。' },
+        { id: '4.1-collection', code: '构成 2', title: '托收中的现金', pages: 'p.87', concept: '处于银行间确认与转账过程中的支票金额，规模取决于票据数量和清算时间。' },
+        { id: '4.1-central', code: '构成 3', title: '在中央银行的存款', pages: 'p.87', concept: '用于清算、资金转账以及同业拆借、回购和央行借款等资金划转。' },
+        { id: '4.1-interbank', code: '构成 4', title: '存放同业存款', pages: 'p.87', concept: '便于同业票据清算和代理收付，通常可随时支用。' },
+      ] },
+      { id: '4.1.2', code: '4.1.2', title: '目的与原则', pages: 'pp.88–90', concept: '适度存量控制、适时流量调节和安全性原则。', children: [
+        { id: '4.1-stock', code: '原则 1', title: '适度存量控制', pages: 'p.88', concept: '把现金资产存量控制在满足流动性需要的适度规模。' },
+        { id: '4.1-flow', code: '原则 2', title: '适时流量调节', pages: 'p.89', concept: '根据现金流入流出变化及时调度资金头寸。' },
+        { id: '4.1-safety', code: '原则 3', title: '安全性原则', pages: 'p.90', concept: '加强库存现金保管，防范被盗、被抢和操作风险。' },
+      ] },
     ] },
     { id: '4.2', code: '4.2', title: '存款准备金管理', pages: 'pp.90–93', concept: '区分法定存款准备金与超额存款准备金，先满足法定要求，再管理可用头寸。', exercise: 'ch4-reserve', children: [
-      { id: '4.2.1', code: '4.2.1', title: '法定与超额准备金', pages: 'pp.90–91', concept: '法定准备金具有强制性；超额准备金是可用资金。' },
+      { id: '4.2.1', code: '4.2.1', title: '法定与超额准备金', pages: 'pp.90–91', concept: '法定准备金具有强制性；超额准备金是可用资金。', children: [
+        { id: '4.2-statutory', code: '准备金 1', title: '法定存款准备金', pages: 'p.90', concept: '按法定比率向中央银行缴存、一般不得动用的准备金。' },
+        { id: '4.2-excess', code: '准备金 2', title: '超额存款准备金', pages: 'p.91', concept: '超过法定准备金部分，可用于支付、清算、贷款和投资。' },
+      ] },
       { id: '4.2.2', code: '4.2.2', title: '滞后法与同步法', pages: 'pp.92–93', concept: '非交易性账户使用滞后法，交易性账户使用同步法。', formula: '法定准备金 = 存款平均余额 × 法定准备金率' },
       { id: '4.2.3', code: '4.2.3', title: '超额准备金管理', pages: 'p.93', concept: '预测支付、清算和贷款需求，避免准备金账户过多或不足。' },
     ] },
     { id: '4.3', code: '4.3', title: '商业银行的流动性需求', pages: 'pp.93–100', concept: '流动性需求来自存款客户提现和贷款客户贷款要求，分为短期、长期、周期和临时需求。', exercise: 'ch4-demand', children: [
-      { id: '4.3.1', code: '4.3.1', title: '流动性需求的含义与种类', pages: 'pp.93–95', concept: '短期、长期、周期和临时流动性需求。' },
-      { id: '4.3.2', code: '4.3.2', title: '流动性需求预测', pages: 'pp.96–100', concept: '因素法、资金结构法和流动性指标法。', formula: '资金头寸需求量 = 预计贷款增量 + 应缴存款准备金增量 − 预计存款增量' },
+      { id: '4.3.1', code: '4.3.1', title: '流动性需求的含义与种类', pages: 'pp.93–95', concept: '短期、长期、周期和临时流动性需求。', children: [
+        { id: '4.3-short', code: '需求 1', title: '短期流动性需求', pages: 'p.94', concept: '由季节性存贷款波动和客户短期行为引起的现金需求。' },
+        { id: '4.3-long', code: '需求 2', title: '长期流动性需求', pages: 'p.95', concept: '由所服务社区或产业的长期经济发展和存贷款增长决定。' },
+        { id: '4.3-cycle', code: '需求 3', title: '周期流动性需求', pages: 'p.95', concept: '由经济周期波动和市场利率变化引起的流动性压力。' },
+        { id: '4.3-temporary', code: '需求 4', title: '临时流动性需求', pages: 'p.95', concept: '由意外存款流失、贷款集中发放等临时事件引起的需求。' },
+      ] },
+      { id: '4.3.2', code: '4.3.2', title: '流动性需求预测', pages: 'pp.96–100', concept: '因素法、资金结构法和流动性指标法。', formula: '资金头寸需求量 = 预计贷款增量 + 应缴存款准备金增量 − 预计存款增量', children: [
+        { id: '4.3-factor', code: '预测 1', title: '因素法', pages: 'pp.96–97', concept: '分析存款、贷款和准备金等影响因素的预期变化。' },
+        { id: '4.3-structure', code: '预测 2', title: '资金结构法', pages: 'pp.97–99', concept: '按负债稳定性及流动性准备率估算流动性需求。' },
+        { id: '4.3-index', code: '预测 3', title: '流动性指标法', pages: 'pp.99–100', concept: '通过现金指标、流动证券比率等指标综合判断流动性。' },
+      ] },
       { id: '4.3.3', code: '4.3.3', title: '资金结构法', pages: 'pp.97–99', concept: '按游动性、脆弱性和稳定性货币负债及其流动性准备率估算需求。', formula: '总流动性需求 = 负债流动性需求 + 贷款流动性需求' },
       { id: '4.3.4', code: '4.3.4', title: '流动性指标法', pages: 'pp.99–100', concept: '用现金指标、流动证券比率等指标综合观察流动性。' },
     ] },
     { id: '4.4', code: '4.4', title: '商业银行的流动性管理', pages: 'pp.101–104', concept: '比较进取型、保守型和成本最低原则，协调流动性供给与需求。', exercise: 'ch4-management', children: [
-      { id: '4.4.1', code: '4.4.1', title: '流动性需求管理原则', pages: 'pp.101–102', concept: '主动负债、资产转换和最低筹资成本之间的选择。' },
-      { id: '4.4.2', code: '4.4.2', title: '供给与需求协调', pages: 'pp.102–103', concept: '可用头寸、基础头寸、可贷头寸，以及资产转换和借入资金。' },
-      { id: '4.4.3', code: '4.4.3', title: '管理效果衡量', pages: 'pp.103–104', concept: '公众信心、股价、风险溢价、资产出售损失、贷款满足能力和央行借款频率。' },
+      { id: '4.4.1', code: '4.4.1', title: '流动性需求管理原则', pages: 'pp.101–102', concept: '主动负债、资产转换和最低筹资成本之间的选择。', children: [
+        { id: '4.4-aggressive', code: '原则 1', title: '进取型原则', pages: 'p.101', concept: '通过主动负债满足流动性需求并扩大经营规模。' },
+        { id: '4.4-conservative', code: '原则 2', title: '保守型原则', pages: 'p.102', concept: '依靠自身资产转换或出售满足流动性需求。' },
+        { id: '4.4-lowest', code: '原则 3', title: '成本最低原则', pages: 'p.102', concept: '比较多种筹资方案，选择成本最低且时间可行的方案。' },
+      ] },
+      { id: '4.4.2', code: '4.4.2', title: '供给与需求协调', pages: 'pp.102–103', concept: '可用头寸、基础头寸、可贷头寸，以及资产转换和借入资金。', children: [
+        { id: '4.4-available', code: '头寸 1', title: '可用头寸', pages: 'p.102', concept: '扣除法定存款准备金后的所有现金资产。' },
+        { id: '4.4-base', code: '头寸 2', title: '基础头寸', pages: 'p.102', concept: '库存现金与超额存款准备金之和。' },
+        { id: '4.4-loanable', code: '头寸 3', title: '可贷头寸', pages: 'p.103', concept: '扣除正常清算周转需要后可直接用于贷款和投资的资金。' },
+      ] },
+      { id: '4.4.3', code: '4.4.3', title: '管理效果衡量', pages: 'pp.103–104', concept: '公众信心、股价、风险溢价、资产出售损失、贷款满足能力和央行借款频率。', children: [
+        { id: '4.4-signals', code: '信号', title: '六类市场信号', pages: 'pp.103–104', concept: '公众信心、股票价格、负债风险溢价、出售资产损失、贷款满足能力和央行借款频率。' },
+      ] },
     ] },
   ],
 }

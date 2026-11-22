@@ -77,7 +77,7 @@ function ModuleRouter({ active, onNavigate }: AppProps) {
 
 function NodeTree({ node, onNavigate, depth = 0 }: { node: ChapterNode; onNavigate: (id: ModuleId) => void; depth?: number }) {
   const isRoot = depth === 0
-  return <div className={'tree-node depth-' + depth}><button className={'tree-node-card ' + (isRoot ? 'root' : '')} onClick={() => node.exercise && onNavigate(node.exercise)}><div className="tree-node-top"><span className="code-pill">{node.code}</span><span className="tree-pages">{node.pages}</span></div><strong>{node.title}</strong><p>{node.concept}</p>{node.formula && <code>{node.formula}</code>}{node.exercise && <span className="tree-link"><ArrowUpRight size={14}/>进入计算实验</span>}</button>{node.children && <div className="tree-children">{node.children.map(child => <NodeTree key={child.id} node={child} onNavigate={onNavigate} depth={depth + 1}/>)}</div>}</div>
+  return <div className={'tree-node depth-' + depth}><button className={'tree-node-card ' + (isRoot ? 'root' : '') + (node.examFocus ? ' exam-focus' : '')} onClick={() => node.exercise && onNavigate(node.exercise)}><div className="tree-node-top"><span className="code-pill">{node.code}</span><span className="tree-pages">{node.pages}</span></div><strong>{node.title}</strong><p>{node.concept}</p>{node.formula && <code>{node.formula}</code>}{node.exercise && <span className="tree-link"><ArrowUpRight size={14}/>进入计算实验</span>}</button>{node.children && <div className="tree-children">{node.children.map(child => <NodeTree key={child.id} node={child} onNavigate={onNavigate} depth={depth + 1}/>)}</div>}</div>
 }
 
 function KnowledgeMap({ onNavigate }: { onNavigate: (id: ModuleId) => void }) {

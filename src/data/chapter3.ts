@@ -9,6 +9,7 @@ export type ChapterNode = {
   concept: string
   formula?: string
   exercise?: ModuleId
+  examFocus?: boolean
   children?: ChapterNode[]
 }
 
@@ -20,7 +21,17 @@ export const chapterTree: ChapterNode = {
   concept: '以最低风险、最小成本获取最大的资金保障，同时支持资产增长并保持流动性。',
   children: [
     { id: '3.1', title: '存款种类和构成', code: '3.1', pages: 'pp.67–71', concept: '从账户类型、存款来源和结构维度认识商业银行的主要负债。', children: [
-      { id: '3.1-types', title: '存款有哪些种类', code: '3.1.1', pages: 'pp.67–69', concept: '交易账户、储蓄存款、定期存款等服务类型，分别对应支付便利、稳定性和成本。' },
+      { id: '3.1-types', title: '存款有哪些种类', code: '3.1.1', pages: 'pp.67–69', concept: '先按账户是否具有交易支付功能区分交易账户和非交易账户，再观察各类账户的稳定性、便利性和成本。', children: [
+        { id: '3.1-transaction', title: '交易账户', code: '交易账户', pages: 'pp.67–69', concept: '具有签发类似支票的支付、转账或提款功能，资金流动性较强。', children: [
+          { id: '3.1-demand', title: '活期存款账户', code: '交易账户 1', pages: 'pp.67–68', concept: '可随时存取、用于日常支付结算的账户。' },
+          { id: '3.1-nows', title: '可转让支付命令账户', code: '交易账户 2', pages: 'p.68', concept: '可签发支付命令并兼具交易支付功能的账户。' },
+          { id: '3.1-mmd', title: '货币市场存款账户', code: '交易账户 3', pages: 'p.68', concept: '兼具交易便利和货币市场工具特征的存款账户。' },
+        ] },
+        { id: '3.1-nontransaction', title: '非交易账户', code: '非交易账户', pages: 'pp.68–69', concept: '以储蓄或期限安排为主，短期内提取可能性相对较小。', children: [
+          { id: '3.1-savings', title: '储蓄存款', code: '非交易账户 1', pages: 'pp.68–69', concept: '主要面向个人储蓄需要，稳定性通常高于交易账户。' },
+          { id: '3.1-term', title: '定期存款', code: '非交易账户 2', pages: 'pp.69–70', concept: '按约定期限支取，期限和利率安排影响资金稳定性与成本。' },
+        ] },
+      ] },
       { id: '3.1-composition', title: '存款构成怎样观察', code: '3.1.2', pages: 'pp.69–71', concept: '按资产负债类型、国民经济部门、币种、地区、行业、期限、账户和产品等维度分类。' },
       { id: '3.1-structure', title: '存款服务的经营含义', code: '3.1.3', pages: 'pp.67–71', concept: '存款规模、结构、稳定性和付息成本共同影响负债管理。' },
     ] },
